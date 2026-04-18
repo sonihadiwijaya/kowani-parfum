@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kowani Parfum - Custom Fragrance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+  <h1 class="text-5xl md:text-6xl font-bold mb-4">
+    Racik Parfum Kamu Sendiri
+  </h1>
+  <p class="text-gray-400 mb-6 max-w-xl">
+    Wangi yang unik, dibuat khusus sesuai kepribadian kamu.
+  </p>
+  <a href="#builder" class="bg-white text-black px-6 py-3 rounded-full hover:scale-105 transition">
+    Mulai Custom
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section class="py-16 px-6 text-center max-w-3xl mx-auto">
+  <h2 class="text-3xl font-semibold mb-4">Tentang Kowani</h2>
+  <p class="text-gray-400">
+    Kowani Parfum menghadirkan pengalaman unik meracik parfum sendiri dengan berbagai pilihan aroma premium.
+  </p>
+</section>
+
+<!-- KATEGORI -->
+<section class="py-16 px-6">
+  <h2 class="text-3xl text-center mb-10">Pilih Aroma</h2>
+  <div class="grid md:grid-cols-4 gap-6 text-center">
+
+    <div class="p-6 border border-gray-800 rounded-xl hover:bg-white hover:text-black transition">Floral 🌸</div>
+    <div class="p-6 border border-gray-800 rounded-xl hover:bg-white hover:text-black transition">Fresh 🍃</div>
+    <div class="p-6 border border-gray-800 rounded-xl hover:bg-white hover:text-black transition">Woody 🌲</div>
+    <div class="p-6 border border-gray-800 rounded-xl hover:bg-white hover:text-black transition">Sweet 🍬</div>
+
+  </div>
+</section>
+
+<!-- BUILDER -->
+<section id="builder" class="py-20 px-6 bg-gray-900">
+  <h2 class="text-3xl text-center mb-10">Custom Parfum Kamu</h2>
+
+  <div class="max-w-xl mx-auto space-y-6">
+
+    <select id="base" class="w-full p-3 bg-black border border-gray-700 rounded">
+      <option value="">Pilih Base</option>
+      <option value="Fresh">Fresh</option>
+      <option value="Sweet">Sweet</option>
+      <option value="Woody">Woody</option>
+    </select>
+
+    <select id="top" class="w-full p-3 bg-black border border-gray-700 rounded">
+      <option value="">Pilih Top Notes</option>
+      <option value="Floral">Floral</option>
+      <option value="Citrus">Citrus</option>
+      <option value="Vanilla">Vanilla</option>
+    </select>
+
+    <select id="size" class="w-full p-3 bg-black border border-gray-700 rounded">
+      <option value="">Pilih Ukuran</option>
+      <option value="30ml">30ml - Rp50k</option>
+      <option value="50ml">50ml - Rp75k</option>
+      <option value="100ml">100ml - Rp120k</option>
+    </select>
+
+    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded hover:scale-105 transition">
+      Generate Parfum
+    </button>
+
+    <div id="result" class="text-center text-xl mt-6"></div>
+
+    <a id="wa" target="_blank" class="hidden block text-center bg-green-500 py-3 rounded mt-4">
+      Order via WhatsApp
+    </a>
+
+  </div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+function generate() {
+  let base = document.getElementById("base").value;
+  let top = document.getElementById("top").value;
+  let size = document.getElementById("size").value;
+
+  if (!base || !top || !size) {
+    alert("Lengkapi pilihan dulu!");
+    return;
+  }
+
+  let result = `${base} + ${top} (${size})`;
+  document.getElementById("result").innerText = "Parfum kamu: " + result;
+
+  let text = encodeURIComponent(`Halo Kowani, saya mau pesan parfum: ${result}`);
+  let waLink = `https://wa.me/628998529355?text=${text}`;
+
+  let waBtn = document.getElementById("wa");
+  waBtn.href = waLink;
+  waBtn.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
