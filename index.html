@@ -1,88 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Kowani Parfum | Fragrance Lab</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kowani Parfum | Luxury Fragrance Experience</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  body {
+    background: radial-gradient(circle at top, #111 0%, #000 70%);
+  }
+
+  .glow {
+    box-shadow: 0 0 40px rgba(255,255,255,0.08);
+  }
+
+  .glass {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(12px);
+  }
+
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+</style>
 </head>
 
-<body class="bg-black text-white">
+<body class="text-white font-sans">
 
 <!-- HERO -->
 <section class="h-screen flex flex-col justify-center items-center text-center px-6">
-  <h1 class="text-5xl md:text-6xl font-light tracking-wide">
-    Create Your Signature Scent
-  </h1>
-  <p class="text-gray-400 mt-4 max-w-xl">
-    Experience custom fragrance blending at Kowani Parfum
-  </p>
 
-  <a href="#builder" class="mt-8 bg-white text-black px-6 py-3 rounded-full hover:scale-105 transition">
-    Start Blending
-  </a>
+  <div class="float">
+    <h1 class="text-5xl md:text-6xl font-light tracking-widest">
+      KOWANI PARFUM
+    </h1>
+
+    <p class="text-gray-400 mt-4 text-lg">
+      Luxury Fragrance Experience Studio
+    </p>
+  </div>
+
+  <div class="mt-10 flex gap-4">
+    <a href="#builder" class="bg-white text-black px-6 py-3 rounded-full hover:scale-105 transition">
+      Create Perfume
+    </a>
+
+    <a href="#collection" class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
+      Explore Scent
+    </a>
+  </div>
+
 </section>
 
-<!-- EXPERIENCE -->
-<section class="py-20 px-6 text-center max-w-4xl mx-auto">
-  <h2 class="text-3xl mb-6">Fragrance Experience</h2>
-  <p class="text-gray-400">
-    Kowani Parfum menghadirkan pengalaman meracik parfum langsung sesuai karakter kamu.
-  </p>
+<!-- INFO GRID -->
+<section class="py-20 px-6 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+  <div class="glass p-6 rounded-xl glow">
+    <h3 class="text-xl mb-2">Custom Blend</h3>
+    <p class="text-gray-400 text-sm">Racik parfum sesuai karakter kamu</p>
+  </div>
+
+  <div class="glass p-6 rounded-xl glow">
+    <h3 class="text-xl mb-2">Premium Aroma</h3>
+    <p class="text-gray-400 text-sm">Koleksi wangi eksklusif & tahan lama</p>
+  </div>
+
+  <div class="glass p-6 rounded-xl glow">
+    <h3 class="text-xl mb-2">Instant Order</h3>
+    <p class="text-gray-400 text-sm">Langsung order via WhatsApp</p>
+  </div>
+
 </section>
 
 <!-- COLLECTION -->
-<section class="py-20 px-6 grid md:grid-cols-4 gap-6 text-center">
+<section id="collection" class="py-20 px-6 text-center">
 
-  <div class="border border-gray-800 p-6 rounded-xl">Fresh Daily</div>
-  <div class="border border-gray-800 p-6 rounded-xl">Sweet Romance</div>
-  <div class="border border-gray-800 p-6 rounded-xl">Woody Elegant</div>
-  <div class="border border-gray-800 p-6 rounded-xl">Clean Luxury</div>
+  <h2 class="text-3xl mb-10">Signature Collection</h2>
+
+  <div class="grid md:grid-cols-4 gap-6">
+
+    <div class="glass p-6 rounded-xl hover:scale-105 transition">
+      🌸 Floral Dream
+    </div>
+
+    <div class="glass p-6 rounded-xl hover:scale-105 transition">
+      🍃 Fresh Ocean
+    </div>
+
+    <div class="glass p-6 rounded-xl hover:scale-105 transition">
+      🌲 Woody Luxe
+    </div>
+
+    <div class="glass p-6 rounded-xl hover:scale-105 transition">
+      🍬 Sweet Vanilla
+    </div>
+
+  </div>
 
 </section>
 
 <!-- BUILDER -->
-<section id="builder" class="py-20 px-6 bg-gray-900">
-  <div class="max-w-xl mx-auto space-y-4">
+<section id="builder" class="py-20 px-6 bg-black">
 
-    <h2 class="text-2xl text-center mb-6">Blend Your Fragrance</h2>
+  <div class="max-w-xl mx-auto glass p-8 rounded-2xl glow">
 
-    <select id="base" class="w-full p-3 bg-black border border-gray-700 rounded">
-      <option>Choose Base Scent</option>
+    <h2 class="text-2xl text-center mb-6">Build Your Signature Scent</h2>
+
+    <select id="base" class="w-full p-3 bg-black border border-gray-700 rounded mb-4">
+      <option>Choose Base</option>
       <option>Fresh</option>
       <option>Sweet</option>
       <option>Woody</option>
     </select>
 
-    <select id="note" class="w-full p-3 bg-black border border-gray-700 rounded">
-      <option>Choose Personality Note</option>
+    <select id="note" class="w-full p-3 bg-black border border-gray-700 rounded mb-4">
+      <option>Choose Accent</option>
       <option>Floral</option>
       <option>Citrus</option>
       <option>Vanilla</option>
     </select>
 
-    <button onclick="build()" class="w-full bg-white text-black py-3 rounded">
-      Generate Scent
+    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded hover:scale-105 transition">
+      Generate Fragrance
     </button>
 
-    <div id="result" class="text-center mt-4"></div>
+    <div id="result" class="text-center mt-6 text-lg"></div>
 
-    <a id="wa" class="hidden block bg-green-500 text-center py-3 rounded mt-4">
+    <a id="wa" class="hidden block mt-4 bg-green-500 text-center py-3 rounded">
       Order via WhatsApp
     </a>
 
   </div>
+
 </section>
 
+<!-- FOOTER -->
+<footer class="text-center py-10 text-gray-500 text-sm">
+  © Kowani Parfum - Fragrance Experience Studio
+</footer>
+
 <script>
-function build(){
+function generate() {
   let base = document.getElementById("base").value;
   let note = document.getElementById("note").value;
 
   let result = base + " + " + note;
-  document.getElementById("result").innerText = "Your scent: " + result;
+
+  document.getElementById("result").innerText =
+    "Your Signature Scent: " + result;
 
   let wa = document.getElementById("wa");
-  wa.href = "https://wa.me/628998529355?text=Halo%20saya%20mau%20order%20parfum:%20" + result;
+  wa.href =
+    "https://wa.me/628998529355?text=Halo%20saya%20mau%20order%20parfum:%20" +
+    result;
+
   wa.classList.remove("hidden");
 }
 </script>
