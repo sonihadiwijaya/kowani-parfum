@@ -21,16 +21,16 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* HERO BG */
+/* HERO */
 .hero {
   background: url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80') center/cover;
 }
 
 .overlay {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.65);
 }
 
-/* ANIMATION */
+/* ANIMASI */
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
@@ -41,9 +41,13 @@ body {
   transform: translateY(0);
 }
 
-/* GLOW BUTTON */
-.glow:hover {
-  box-shadow: 0 0 20px rgba(255,255,255,0.5);
+/* HOVER */
+.hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+img {
+  transition: 0.6s;
 }
 </style>
 </head>
@@ -51,11 +55,12 @@ body {
 <body class="text-white">
 
 <!-- NAVBAR -->
-<header class="fixed w-full z-50 glass px-6 py-4 flex justify-between">
-  <h1 class="text-lg">Kowani</h1>
+<header class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
+  <h1 class="text-lg tracking-widest">KOWANI</h1>
   <nav class="space-x-6 text-sm text-gray-300">
     <a href="#">Home</a>
     <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
     <a href="#builder">Builder</a>
   </nav>
 </header>
@@ -64,46 +69,66 @@ body {
 <section class="hero h-screen flex items-center justify-center text-center">
   <div class="overlay absolute inset-0"></div>
 
-  <div class="relative z-10 max-w-2xl">
+  <div class="relative z-10 max-w-2xl px-6">
     <h1 class="text-5xl md:text-6xl font-light fade-up">
-      Craft Your Identity
+      Define Your Scent Identity
     </h1>
 
     <p class="text-gray-300 mt-4 fade-up">
-      Luxury fragrance designed uniquely for you
+      Kowani menghadirkan pengalaman parfum personal dengan sentuhan luxury modern
     </p>
 
-    <a href="#builder" class="glow inline-block mt-8 px-8 py-3 bg-white text-black rounded-full">
-      Start Experience
+    <a href="#builder" class="inline-block mt-8 px-8 py-3 bg-white text-black rounded-full">
+      Start Your Journey
     </a>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="py-24 px-6 max-w-5xl mx-auto text-center">
-  <h2 class="text-3xl mb-6 fade-up">The Art of Scent</h2>
+  <h2 class="text-3xl mb-6 fade-up">About Kowani</h2>
   <p class="text-gray-400 fade-up">
-    Kowani Fragrance Studio menghadirkan pengalaman parfum personal berbasis karakter dan emosi. 
-    Setiap aroma dirancang untuk mencerminkan identitas unik Anda.
+    Kowani Fragrance Studio adalah tempat di mana aroma bukan sekadar wangi,
+    tetapi representasi karakter, emosi, dan identitas diri.
+    Kami menciptakan parfum eksklusif dengan standar premium.
   </p>
 </section>
 
-<!-- FEATURES -->
+<!-- GALLERY -->
+<section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
+
+  <h2 class="text-3xl text-center mb-12 fade-up">Our Studio & Products</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="overflow-hidden rounded-xl hover-zoom fade-up">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEcCuSmV-r1AM4RvuZpCB-3wP4EbIOI0fxwChM1LXHtVRRsRWBt-bv49zbUo9bcDxoY6rImrcDbiL8fC56AvrNAsLEohxTfbyluXlyqyL8PUVYr_It1oB_OC9HuFC4Zoudv03mP04vrxrM=s680-w680-h510-rw" class="w-full h-full object-cover">
+    </div>
+
+    <div class="overflow-hidden rounded-xl hover-zoom fade-up">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH2m0I12DgcCGqc2BQEIoCvUWYmFOIWVoWFSzl_-gUUayNN3gHp7yvKXlFF1SadZvqgd2IaQZj8B9njPM9JQBFLfDmgA5PLs4h0kx4Or2Y-bYxg0HetWrGAfCfMSd5KYmo7TqG5MA=s680-w680-h510-rw" class="w-full h-full object-cover">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
 <section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
 
-  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
-    <h3 class="text-xl mb-2">Signature Blend</h3>
-    <p class="text-gray-400 text-sm">Parfum eksklusif hasil racikan personal</p>
+  <div class="glass p-6 rounded-xl fade-up">
+    <h3 class="text-xl mb-2">Exclusive Blend</h3>
+    <p class="text-gray-400 text-sm">Racikan parfum personal sesuai karakter Anda</p>
   </div>
 
-  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
-    <h3 class="text-xl mb-2">Luxury Oils</h3>
-    <p class="text-gray-400 text-sm">Bahan premium tahan lama</p>
+  <div class="glass p-6 rounded-xl fade-up">
+    <h3 class="text-xl mb-2">Premium Quality</h3>
+    <p class="text-gray-400 text-sm">Menggunakan bahan berkualitas tinggi dan tahan lama</p>
   </div>
 
-  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
-    <h3 class="text-xl mb-2">Fast Order</h3>
-    <p class="text-gray-400 text-sm">Checkout langsung via WhatsApp</p>
+  <div class="glass p-6 rounded-xl fade-up">
+    <h3 class="text-xl mb-2">Luxury Experience</h3>
+    <p class="text-gray-400 text-sm">Pengalaman membuat parfum yang elegan dan berkelas</p>
   </div>
 
 </section>
@@ -113,7 +138,7 @@ body {
 
   <div class="max-w-xl mx-auto glass p-10 rounded-2xl fade-up">
 
-    <h2 class="text-2xl text-center mb-6">Fragrance Builder</h2>
+    <h2 class="text-2xl text-center mb-6">Create Your Fragrance</h2>
 
     <select id="base" class="w-full p-3 bg-black border border-gray-700 rounded mb-4">
       <option value="">Base Note</option>
@@ -129,7 +154,7 @@ body {
       <option>Vanilla</option>
     </select>
 
-    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded glow">
+    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded">
       Generate Scent
     </button>
 
@@ -143,25 +168,10 @@ body {
 
 </section>
 
-<!-- TESTIMONI -->
-<section class="py-20 px-6 max-w-5xl mx-auto text-center">
-  <h2 class="text-3xl mb-10 fade-up">Client Experience</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-
-    <div class="glass p-6 fade-up">
-      "Wanginya beda banget, kayak brand mahal!"
-    </div>
-
-    <div class="glass p-6 fade-up">
-      "Personal banget, sesuai karakter saya."
-    </div>
-
-    <div class="glass p-6 fade-up">
-      "Packaging + scent = premium."
-    </div>
-
-  </div>
+<!-- CTA -->
+<section class="py-20 text-center">
+  <h2 class="text-3xl mb-4 fade-up">Start Your Signature Today</h2>
+  <p class="text-gray-400 fade-up">Buat parfum yang benar-benar merepresentasikan diri Anda</p>
 </section>
 
 <!-- FOOTER -->
