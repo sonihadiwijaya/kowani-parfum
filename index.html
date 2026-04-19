@@ -10,89 +10,127 @@
 
 <style>
 body {
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background: #000;
   font-family: sans-serif;
 }
 
+/* GLASS */
 .glass {
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-.fade-in {
-  animation: fadeIn 1.2s ease forwards;
+/* HERO BG */
+.hero {
+  background: url('https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80') center/cover;
 }
 
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(20px);}
-  to {opacity:1; transform:translateY(0);}
+.overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+/* ANIMATION */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 1s;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* GLOW BUTTON */
+.glow:hover {
+  box-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 </style>
 </head>
 
 <body class="text-white">
 
+<!-- NAVBAR -->
+<header class="fixed w-full z-50 glass px-6 py-4 flex justify-between">
+  <h1 class="text-lg">Kowani</h1>
+  <nav class="space-x-6 text-sm text-gray-300">
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#builder">Builder</a>
+  </nav>
+</header>
+
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+<section class="hero h-screen flex items-center justify-center text-center">
+  <div class="overlay absolute inset-0"></div>
 
-  <h1 class="text-5xl md:text-6xl font-light fade-in">
-    Kowani Fragrance Studio
-  </h1>
+  <div class="relative z-10 max-w-2xl">
+    <h1 class="text-5xl md:text-6xl font-light fade-up">
+      Craft Your Identity
+    </h1>
 
-  <p class="text-gray-400 mt-4 fade-in">
-    A modern scent experience crafted for your identity
-  </p>
+    <p class="text-gray-300 mt-4 fade-up">
+      Luxury fragrance designed uniquely for you
+    </p>
 
-  <a href="#builder" class="mt-8 px-6 py-3 bg-white text-black rounded-full hover:scale-105 transition">
-    Create Your Scent
-  </a>
-
+    <a href="#builder" class="glow inline-block mt-8 px-8 py-3 bg-white text-black rounded-full">
+      Start Experience
+    </a>
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="py-20 px-6 max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
+<!-- ABOUT -->
+<section id="about" class="py-24 px-6 max-w-5xl mx-auto text-center">
+  <h2 class="text-3xl mb-6 fade-up">The Art of Scent</h2>
+  <p class="text-gray-400 fade-up">
+    Kowani Fragrance Studio menghadirkan pengalaman parfum personal berbasis karakter dan emosi. 
+    Setiap aroma dirancang untuk mencerminkan identitas unik Anda.
+  </p>
+</section>
 
-  <div class="glass p-6 rounded-xl">
+<!-- FEATURES -->
+<section class="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
     <h3 class="text-xl mb-2">Signature Blend</h3>
-    <p class="text-gray-400 text-sm">Personal fragrance crafted uniquely for you</p>
+    <p class="text-gray-400 text-sm">Parfum eksklusif hasil racikan personal</p>
   </div>
 
-  <div class="glass p-6 rounded-xl">
-    <h3 class="text-xl mb-2">Luxury Ingredients</h3>
-    <p class="text-gray-400 text-sm">Premium aroma oils with long-lasting scent</p>
+  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
+    <h3 class="text-xl mb-2">Luxury Oils</h3>
+    <p class="text-gray-400 text-sm">Bahan premium tahan lama</p>
   </div>
 
-  <div class="glass p-6 rounded-xl">
-    <h3 class="text-xl mb-2">Instant Order</h3>
-    <p class="text-gray-400 text-sm">Direct WhatsApp checkout system</p>
+  <div class="glass p-6 rounded-xl hover:scale-105 transition fade-up">
+    <h3 class="text-xl mb-2">Fast Order</h3>
+    <p class="text-gray-400 text-sm">Checkout langsung via WhatsApp</p>
   </div>
 
 </section>
 
 <!-- BUILDER -->
-<section id="builder" class="py-20 px-6">
+<section id="builder" class="py-24 px-6">
 
-  <div class="max-w-xl mx-auto glass p-8 rounded-2xl">
+  <div class="max-w-xl mx-auto glass p-10 rounded-2xl fade-up">
 
     <h2 class="text-2xl text-center mb-6">Fragrance Builder</h2>
 
     <select id="base" class="w-full p-3 bg-black border border-gray-700 rounded mb-4">
-      <option>Base Note</option>
+      <option value="">Base Note</option>
       <option>Fresh</option>
       <option>Woody</option>
       <option>Sweet</option>
     </select>
 
     <select id="top" class="w-full p-3 bg-black border border-gray-700 rounded mb-4">
-      <option>Top Note</option>
+      <option value="">Top Note</option>
       <option>Citrus</option>
       <option>Floral</option>
       <option>Vanilla</option>
     </select>
 
-    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded">
-      Generate Scent Profile
+    <button onclick="generate()" class="w-full bg-white text-black py-3 rounded glow">
+      Generate Scent
     </button>
 
     <div id="result" class="text-center mt-6 text-lg"></div>
@@ -105,10 +143,41 @@ body {
 
 </section>
 
+<!-- TESTIMONI -->
+<section class="py-20 px-6 max-w-5xl mx-auto text-center">
+  <h2 class="text-3xl mb-10 fade-up">Client Experience</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="glass p-6 fade-up">
+      "Wanginya beda banget, kayak brand mahal!"
+    </div>
+
+    <div class="glass p-6 fade-up">
+      "Personal banget, sesuai karakter saya."
+    </div>
+
+    <div class="glass p-6 fade-up">
+      "Packaging + scent = premium."
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-10 text-center text-gray-500 border-t border-gray-800">
+  © 2025 Kowani Fragrance Studio
+</footer>
+
 <script>
 function generate(){
   let base = document.getElementById("base").value;
   let top = document.getElementById("top").value;
+
+  if(!base || !top){
+    alert("Pilih semua opsi dulu");
+    return;
+  }
 
   let result = base + " + " + top;
 
@@ -116,10 +185,21 @@ function generate(){
     "Your scent profile: " + result;
 
   let wa = document.getElementById("wa");
-  wa.href = "https://wa.me/628998529355?text=Saya%20mau%20order%20parfum:%20" + result;
-
+  wa.href = "https://wa.me/628998529355?text=Order parfum: " + result;
   wa.classList.remove("hidden");
 }
+
+/* SCROLL ANIMATION */
+let items = document.querySelectorAll(".fade-up");
+
+window.addEventListener("scroll", () => {
+  items.forEach(el => {
+    let top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("show");
+    }
+  });
+});
 </script>
 
 </body>
